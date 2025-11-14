@@ -17,9 +17,9 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   }
 
   return (
-    <article className="min-h-screen bg-white">
+    <article className="min-h-screen bg-gradient-to-b from-purple-50 via-white to-purple-50">
       {/* Hero Section */}
-      <div className="relative h-96 mb-12">
+      <div className="relative h-[500px] mb-12">
         <Image
           src={post.featuredImage}
           alt={post.title}
@@ -27,19 +27,19 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 text-white">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="px-4 py-2 bg-primary-600 rounded-full text-sm font-semibold">
+        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-purple-900/30 flex items-end">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 text-white">
+            <div className="flex items-center gap-4 mb-6 flex-wrap">
+              <span className="px-4 py-2 bg-purple-600 rounded-full text-sm font-semibold shadow-lg">
                 {post.location}
               </span>
-              <span className="px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm">
+              <span className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm border border-white/30">
                 {post.category}
               </span>
-              <span className="text-sm">{post.readTime} min read</span>
+              <span className="text-sm text-purple-100">{post.readTime} min read</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{post.title}</h1>
-            <p className="text-xl text-gray-200">{post.excerpt}</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">{post.title}</h1>
+            <p className="text-xl text-purple-100">{post.excerpt}</p>
           </div>
         </div>
       </div>
@@ -58,9 +58,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </span>
             <Link
               href="/blog"
-              className="text-primary-600 hover:text-primary-700 font-semibold"
+              className="text-purple-600 hover:text-purple-700 font-semibold flex items-center gap-2 group"
             >
-              ← Back to All Posts
+              <span className="group-hover:-translate-x-1 transition-transform">←</span>
+              Back to All Posts
             </Link>
           </div>
         </div>
@@ -70,7 +71,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           {post.content.sections.map((section, index) => (
             <div key={index} className="mb-12">
               {/* Section Heading */}
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12 first:mt-0">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12 first:mt-0 border-b-2 border-purple-200 pb-3">
                 {section.heading}
               </h2>
 
@@ -116,18 +117,18 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={relatedPost.id}
                   href={`/blog/${relatedPost.slug}`}
-                  className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+                  className="bg-white rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-purple-100"
                 >
-                  <div className="relative h-48">
+                  <div className="relative h-48 overflow-hidden">
                     <Image
                       src={relatedPost.featuredImage}
                       alt={relatedPost.title}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 hover:scale-110"
                     />
                   </div>
-                  <div className="p-4">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                  <div className="p-5">
+                    <h4 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 hover:text-purple-700 transition-colors">
                       {relatedPost.title}
                     </h4>
                     <p className="text-gray-600 text-sm line-clamp-2">
