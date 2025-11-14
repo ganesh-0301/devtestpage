@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { travelPosts, locations, categories } from '@/lib/travelData';
@@ -69,10 +70,11 @@ function BlogContent() {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-64">
-                  <img
+                  <Image
                     src={post.featuredImage}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6">

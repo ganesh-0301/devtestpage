@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { travelPosts } from '@/lib/travelData';
 
 export default function Home() {
@@ -39,10 +40,11 @@ export default function Home() {
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
               >
                 <div className="relative h-48">
-                  <img
+                  <Image
                     src={post.featuredImage}
                     alt={post.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6">
@@ -109,10 +111,11 @@ export default function Home() {
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden group"
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={destination.image}
                     alt={destination.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6 text-center">

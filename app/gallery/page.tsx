@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { galleryImages } from '@/lib/travelData';
 
 export default function GalleryPage() {
@@ -22,10 +23,11 @@ export default function GalleryPage() {
               className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer"
             >
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={image.url}
                   alt={image.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-opacity duration-300 flex items-end">
                   <div className="w-full p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">

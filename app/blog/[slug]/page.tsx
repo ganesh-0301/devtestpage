@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { travelPosts } from '@/lib/travelData';
 
 interface BlogPostPageProps {
@@ -19,10 +20,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     <article className="min-h-screen bg-white">
       {/* Hero Section */}
       <div className="relative h-96 mb-12">
-        <img
+        <Image
           src={post.featuredImage}
           alt={post.title}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 text-white">
@@ -76,10 +79,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                   {section.images.map((imageUrl, imgIndex) => (
                     <div key={imgIndex} className="relative h-64 rounded-lg overflow-hidden">
-                      <img
+                      <Image
                         src={imageUrl}
                         alt={`${section.heading} - Image ${imgIndex + 1}`}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                     </div>
                   ))}
@@ -115,10 +119,11 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
                 >
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src={relatedPost.featuredImage}
                       alt={relatedPost.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div className="p-4">
