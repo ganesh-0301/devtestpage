@@ -25,7 +25,7 @@ export default function RootLayout({
       var q = function() {
           q.q.push(arguments)
       };
-      q.q = [];w._psp = q;var s = d.createElement("script");s.async = 1;s.src = "https://app-test.prospectory.ai/psp.tracker.test.js";
+      q.q = [];w._psp = q;var s = d.createElement("script");s.async = 1;s.src = "https://app-test.prospectory.ai/psp.tracker.prod.js";
       var f = d.getElementsByTagName("script")[0];f.parentNode.insertBefore(s, f);
       s.onload = function() {
           try {
